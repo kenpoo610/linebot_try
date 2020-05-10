@@ -22,7 +22,7 @@ line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 def hands_to_int(userhand):
-    if userhand == "好き" or "すき" or "スキ":
+    if userhand == "好き":
         message = "僕の方が好きだよ！"
     elif userhand == "グー":
         message = "パーだよ"
