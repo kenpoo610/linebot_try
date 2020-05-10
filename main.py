@@ -24,7 +24,7 @@ handler = WebhookHandler(LINE_CHANNEL_SECRET)
 def hands_to_int(userhand):
     if userhand == "好き" or "すき" or "スキ":
         message = "僕の方が好きだよ！"
-    if userhand == "グー":
+    elif userhand == "グー":
         message = "パーだよ"
     elif userhand == "チョキ":
         message = "グーだよ"
