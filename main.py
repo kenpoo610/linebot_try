@@ -21,21 +21,31 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
+
+def bot_hand(a,b,c):
+    bothand = random.randint(1,3)
+    if bothand == 1:
+        message_bot = "グーだよ、" + a
+    elif bothand == 2:
+        message_bot = "チョキだよ、" + b
+    else:
+        message_bot = "パーだよ、" + c
+    return message_bot    
+
 def hands_to_int(userhand):
     if userhand == "好き":
         message = "僕の方が好きだよ！"
     elif userhand == "グー":
-        message = "パーだよ"
+        message = bot_hand("あいこだね","私の負け","私の勝ち")
     elif userhand == "チョキ":
-        message = "グーだよ"
+        message = bot_hand("私の勝ち","あいこだね","私の負け")
     elif userhand == "パー":
-        message = "チョキだよ"
+        message = bot_hand("私の負け","私の勝ち","あいこだね")       
     else:
         message = "グーかチョキかパーで入力してね"
     return message    
         
-    
-        
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
