@@ -43,6 +43,8 @@ def hands_to_int(userhand):
         message = bot_hand("私の負け","私の勝ち","あいこだね")
     elif userhand == "ほっけええええええええい！":
         message = "豚饅頭さん、私も好きですよ"
+    elif userhand == "エルフクイーン":
+        message = "なんちゅうカード入れとるんじゃぁぁぁぁ！！"
     else:
         message = "グーかチョキかパーで入力してね"
     return message    
