@@ -40,7 +40,9 @@ def hands_to_int(userhand):
     elif userhand == "チョキ":
         message = bot_hand("私の勝ち","あいこだね","私の負け")
     elif userhand == "パー":
-        message = bot_hand("私の負け","私の勝ち","あいこだね")       
+        message = bot_hand("私の負け","私の勝ち","あいこだね")
+    elif userhand == "ほっけええええええええい！":
+        message = "豚饅頭さん、私も好きですよ
     else:
         message = "グーかチョキかパーで入力してね"
     return message    
