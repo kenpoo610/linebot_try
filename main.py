@@ -34,7 +34,7 @@ def bot_hand(a,b,c):
 
 def hands_to_int(userhand):
     if userhand == "好き":
-        message = "僕の方が好きだよ！"
+        message = "私も好きだよ"
     elif userhand == "グー":
         message = bot_hand("あいこだね","私の負け","私の勝ち")
     elif userhand == "チョキ":
