@@ -54,8 +54,10 @@ def hands_to_int(userhand):
 def main_brain(your_message):
     if your_message == "じゃんけん":
         message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
-    else:
+    elif your_message in word_dic:
         message = word_dic[your_message]
+    else:
+        message = "「好きな〜は？」みたいに話かけてみてね、じゃんけんは今はおやすみだよ(例：曲,お菓子,本,)"
     return message    
 
 
