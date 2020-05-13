@@ -62,6 +62,7 @@ def main_brain(event):
     if sessions[event.source.user_id] == 0:
         if event.message.text == "じゃんけん":
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
+            sessions[event.source.user_id] = 1
     elif sessions[event.source.user_id] == 1:
         result = hand_to_int(event.message.text)
         if result[0] == True:
