@@ -32,8 +32,10 @@ word_dic = {"元気？":"元気だよ、君は元気？", "暇":"話そう？", 
 
 mind_quest = {1:"お気に入りの花が枯れかかっているときにとる行動は？\n1.ハサミでばっさり切る\n2.即効ゴミ箱行き\n3.ドライフラワーにして二度楽しむ\n4.水をあげる"}
 
-mind_answer = {1:"1.を選んだあなたは感情に任せてとんでもない行動を取ってしまいがち", 2:"2.を選んだあなたは後腐れせずにさっぱり別れられるタイプ",
-               3:"3.を選んだあなたは恋の終わりを穏やかに受け入れるタイプ", 4:"4.を選んだあなた＝諦められず、必死に相手を引き止めるタイプ"}
+mind_answer = {1:"1を選んだあなたは感情に任せてとんでもない行動を取ってしまいがち", 2:"2を選んだあなたは後腐れせずにさっぱり別れられるタイプ",
+               3:"3を選んだあなたは恋の終わりを穏やかに受け入れるタイプ", 4:"4を選んだあなた＝諦められず、必死に相手を引き止めるタイプ"}
+
+mind_message = {1:"これで恋の終わりにあなたが取る行動がわかっちゃうよ\n"}
 
 sessions = {}
 
@@ -75,7 +77,7 @@ def main_brain(event):
         elif event.message.text in word_dic:
             message = word_dic[event.message.text]
         else:
-            message = "「好きな〜は？」みたいに話かけてみてね"
+            message = "「好きな〜は？」みたいに話かけてみてね(例:本,曲,食べ物,etc)\n「じゃんけん」でじゃんけん、「心理テスト」で心理テストができちゃうよ"
     elif sessions[event.source.user_id] == 1:
         result = hands_to_int(event.message.text)
         if result[0] == True:
@@ -83,7 +85,7 @@ def main_brain(event):
         message = result[1]
     elif sessions[event.source.user_id] == 2:   
         if int(event.message.text) <= 4  :
-            message = "これで恋の終わりにあなたが取る行動がわかります\n" + mind_answer[int(event.message.text)]
+            message = mind_message[i] + mind_answer[int(event.message.text)]
             sessions[event.source.user_id] = 0
         else:
             message = "１〜４の数字で入力してね"
