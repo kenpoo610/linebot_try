@@ -71,8 +71,7 @@ def main_brain(event):
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
             sessions[event.source.user_id] = 1
         elif event.message.text == "心理テスト":
-            i = 1
-            message = mind_quest[i]
+            message = mind_quest[1]
             sessions[event.source.user_id] = 2
         elif event.message.text in word_dic:
             message = word_dic[event.message.text]
@@ -85,7 +84,7 @@ def main_brain(event):
         message = result[1]
     elif sessions[event.source.user_id] == 2:   
         if int(event.message.text) <= 4  :
-            message = mind_message[i] + mind_answer[int(event.message.text)]
+            message = mind_message[1] + mind_answer[int(event.message.text)]
             sessions[event.source.user_id] = 0
         else:
             message = "１〜４の数字で入力してね"
