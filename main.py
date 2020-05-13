@@ -58,14 +58,14 @@ def hands_to_int(userhand):
 
 def main_brain(event):
     if event.source.userId in sessions:
-        sessions[event.source.userId] = 0
-    if sessions[event.source.userId] == 0:
+        sessions[event.source.user_id] = 0
+    if sessions[event.source.user_id] == 0:
         if event.message.text == "じゃんけん":
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
-    elif sessions[event.source.userId] == 1:
+    elif sessions[event.source.user_id] == 1:
         result = hand_to_int(event.message.text)
         if result[0] == True:
-           sessions[event.source.userId] = 0
+           sessions[event.source.user_id] = 0
         message = result[1]
   
     elif event in word_dic:
