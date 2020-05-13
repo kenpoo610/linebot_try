@@ -63,16 +63,16 @@ def main_brain(event):
         if event.message.text == "じゃんけん":
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
             sessions[event.source.user_id] = 1
+        elif event in word_dic:
+            message = word_dic[event.message.text]
+        else:
+            message = "「好きな〜は？」みたいに話かけてみてね"
     elif sessions[event.source.user_id] == 1:
         result = hands_to_int(event.message.text)
         if result[0] == True:
            sessions[event.source.user_id] = 0
         message = result[1]
-  
-    elif event in word_dic:
-        message = word_dic[event.message.text]
-    else:
-        message = "「好きな〜は？」みたいに話かけてみてね、じゃんけんは今はおやすみだよ(例：曲,お菓子,本,)"
+   
     return message    
 
 
