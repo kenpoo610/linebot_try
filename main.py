@@ -82,8 +82,8 @@ def main_brain(event):
            sessions[event.source.user_id] = 0
         message = result[1]
     elif sessions[event.source.user_id] == 2:   
-        if event.message.text < 5 :
-            message = mind_answer[event.message.text]
+        if int(event.message.text) <= 4  :
+            message = "これで恋の終わりにあなたが取る行動がわかります" + mind_answer[event.message.text]
             sessions[event.source.user_id] = 0
         else:
             message = "１〜４の数字で入力してね"
