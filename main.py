@@ -63,7 +63,7 @@ def main_brain(event):
         if event.message.text == "じゃんけん":
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
             sessions[event.source.user_id] = 1
-        elif event in word_dic:
+        elif event.message.text in word_dic:
             message = word_dic[event.message.text]
         else:
             message = "「好きな〜は？」みたいに話かけてみてね"
