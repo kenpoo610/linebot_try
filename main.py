@@ -30,6 +30,11 @@ word_dic = {"元気？":"元気だよ、君は元気？", "暇":"話そう？", 
             "ほっけええええええええい！":"豚饅頭さん、私も好きですよ", "眠い":"私も眠いの", x+"物"+y:"漫画だよ",
             x+"漫画"+y:"政宗くんのリベンジ"}
 
+mind_quest = {1:"お気に入りの花が枯れかかっているときにとる行動は？\n1.ハサミでばっさり切る\n2.即効ゴミ箱行き\n3.ドライフラワーにして二度楽しむ\n4.水をあげる"}
+
+mind_answer = {1:"1.を選んだあなたは感情に任せてとんでもない行動を取ってしまいがち", 2:"2.を選んだあなたは後腐れせずにさっぱり別れられるタイプ",
+               3:"3.を選んだあなたは恋の終わりを穏やかに受け入れるタイプ", 4:"4.を選んだあなた＝諦められず、必死に相手を引き止めるタイプ"}
+
 sessions = {}
 
 def bot_hand(a,b,c):
@@ -63,6 +68,10 @@ def main_brain(event):
         if event.message.text == "じゃんけん":
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
             sessions[event.source.user_id] = 1
+        elif event.message.text == "心理テスト":
+            i = 1
+            message = mind_quest[i]
+            sessions[event.source.user_id] = 2
         elif event.message.text in word_dic:
             message = word_dic[event.message.text]
         else:
@@ -72,6 +81,12 @@ def main_brain(event):
         if result[0] == True:
            sessions[event.source.user_id] = 0
         message = result[1]
+    elif sessions[event.source.user_id] == 2:   
+        if event.message.text < 5 :
+            message = mind_answer[event.message.text]
+            sessions[event.source.user_id] = 0
+        else:
+            message = "１〜４の数字で入力してね"
    
     return message    
 
