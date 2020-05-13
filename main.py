@@ -57,7 +57,7 @@ def hands_to_int(userhand):
     
 
 def main_brain(event):
-    if event.source.userId in sessions:
+    if event.source.user_id in sessions:
         sessions[event.source.user_id] = 0
     if sessions[event.source.user_id] == 0:
         if event.message.text == "じゃんけん":
