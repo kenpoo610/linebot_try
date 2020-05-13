@@ -82,7 +82,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = main_brain()
+    message = main_brain(event.message.text)
     if message == "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん....":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
         message = hand_to_int(event.message.text)
