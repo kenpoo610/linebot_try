@@ -65,7 +65,7 @@ def hands_to_int(userhand):
     
 
 def main_brain(event):
-    mind_num = []
+    mind_num = [0]
     if event.source.user_id not in sessions:
         sessions[event.source.user_id] = 0
     if sessions[event.source.user_id] == 0:
