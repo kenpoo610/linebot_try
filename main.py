@@ -64,6 +64,7 @@ def hands_to_int(userhand):
     
 
 def main_brain(event):
+    mind_num = []
     if event.source.user_id not in sessions:
         sessions[event.source.user_id] = 0
     if sessions[event.source.user_id] == 0:
@@ -71,7 +72,9 @@ def main_brain(event):
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
             sessions[event.source.user_id] = 1
         elif event.message.text == "心理テスト":
-            message = mind_quest[1]
+            i = ramdom.randint(1,2)
+            mind_num[0] = i
+            message = mind_quest[mind_num[0]]
             sessions[event.source.user_id] = 2
         elif event.message.text in word_dic:
             message = word_dic[event.message.text]
@@ -84,7 +87,7 @@ def main_brain(event):
         message = result[1]
     elif sessions[event.source.user_id] == 2:   
         if int(event.message.text) <= 4  :
-            message = mind_message[1] + mind_answer[int(event.message.text)]
+            message = mind_message[mind_num[0]] + mind_answer[int(event.message.text)]
             sessions[event.source.user_id] = 0
         else:
             message = "１〜４の数字で入力してね"
