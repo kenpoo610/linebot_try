@@ -76,7 +76,7 @@ def main_brain(event):
         elif event.message.text == "心理テスト":
             i = random.randint(1,2)
             mind_num[event.source.user_id] = i
-            message = mind_quest[mind_num[0]]
+            message = mind_quest[mind_num[event.source.user_id]]
             sessions[event.source.user_id] = 2
         elif event.message.text in word_dic:
             message = word_dic[event.message.text]
