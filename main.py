@@ -38,6 +38,8 @@ mind_answer = {1:{1:"1 を選んだあなたは感情に任せてとんでもな
 
 mind_message = {1:"これで恋の終わりにあなたが取る行動がわかっちゃうよ\n\n", 2:"あなたの不幸引き寄せ度を知ることができちゃうよ\n\n"}
 
+mind_num = {}
+
 sessions = {}
 
 def bot_hand(a,b,c):
@@ -65,7 +67,6 @@ def hands_to_int(userhand):
     
 
 def main_brain(event):
-    mind_num = {}
     if event.source.user_id not in sessions:
         sessions[event.source.user_id] = 0
     if sessions[event.source.user_id] == 0:
@@ -87,7 +88,7 @@ def main_brain(event):
             sessions[event.source.user_id] = 0
         message = result[1]
     elif sessions[event.source.user_id] == 2:   
-        if int(event.message.text) <= 4 :
+        if int(event.message.text) <= 4:
             message = mind_message[mind_num[0]] + mind_answer[mind_num[0]][int(event.message.text)]
             sessions[event.source.user_id] = 0
         else:
