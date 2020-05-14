@@ -73,7 +73,7 @@ def main_brain(event):
             message = "「グー」か「チョキ」か「パー」で入力してね、最初はグーじゃんけん...."
             sessions[event.source.user_id] = 1
         elif event.message.text == "心理テスト":
-            i = ramdom.randint(1,2)
+            i = random.randint(1,2)
             mind_num[0] = i
             message = mind_quest[mind_num[0]]
             sessions[event.source.user_id] = 2
