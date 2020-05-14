@@ -88,7 +88,7 @@ def main_brain(event):
             sessions[event.source.user_id] = 0
         message = result[1]
     elif sessions[event.source.user_id] == 2:   
-        if int(event.message.text) <= 4 and > 0:
+        if int(event.message.text) <= 4 and int(event.message.text) > 0:
             message = mind_message[mind_num[event.source.user_id]] + mind_answer[mind_num[event.source.user_id]][int(event.message.text)]
             sessions[event.source.user_id] = 0
         else:
